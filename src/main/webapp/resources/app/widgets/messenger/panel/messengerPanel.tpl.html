@@ -1,0 +1,34 @@
+<div class="messenger-panel-header">
+    <span class="mg-panel mg-left" ng-click="collapse()">
+        <i class="fa  fa-lg" ng-class="minimized? 'fa-chevron-left' : 'fa-chevron-right'"></i>
+    </span>
+    <span class="mg-right mg-panel" ng-hide="minimized">
+        <i class="fa fa-star fa-lg"></i>
+        <i class="fa fa-times-circle fa-lg"> </i>
+        <i class="fa fa-cog fa-lg"></i>
+    </span>
+</div>
+
+<hr class="block-line">
+<div class="messenger-panel-sec-header" ng-hide="minimized">
+<span>
+    <p class="number">232</p>
+    <p class="user-count">contact</p>
+</span>
+    <span>
+    <p class="number">232</p>
+    <p class="user-count">online</p>
+</span>
+</div>
+<div class="messenger-panel-content">
+    <mg-messenger-panel-user-item minimized="minimized" ng-repeat="user in users"
+                                  user="user"></mg-messenger-panel-user-item>
+</div>
+<div class="messenger-panel-footer mg-panel">
+    <div ng-hide="minimized">
+        <input class="map-search" placeholder="Search..." type="text">
+        <i class="fa fa-search"></i>
+    </div>
+</div>
+
+

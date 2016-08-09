@@ -1,0 +1,25 @@
+@media (max-width: 768px) {
+    .login-form > h1 {
+        font-size: 18px;
+    }
+
+    .title-box > p {
+        display: none;
+    }
+
+    .title-box > img {
+        margin: 0 auto;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 2024px) {
+    .title-box > p {
+        font-size: 28px;
+    }
+
+    .opacity-layer {
+        position: fixed;
+    }
+}
+
+

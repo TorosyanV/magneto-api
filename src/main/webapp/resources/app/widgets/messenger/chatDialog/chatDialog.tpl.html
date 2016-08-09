@@ -1,0 +1,25 @@
+
+<div class="row">
+<div class="col-md-2"><button ng-click="close()">X</button></div>
+<div class="col-md-6"><a>{{user.name}}</a></div>
+</div>
+
+
+<div class="mg-chat-messages-area" style="background-color:rgb(221, 228, 234); overflow-y: scroll; height: 200px;"
+     mg-scrollable scroll-to="9999" scroll-on-change="messages">
+    <span ng-repeat="message in messages"
+          mg-highlight-on-creation="message.mine ? message-highlight-mine :'message-highlight-not-mine'"
+          ng-class="message.mine ? 'is-my-message' :'is-not-my-message'">
+        <p>{{message.text}}</p>
+    </span>
+
+    <br>
+
+</div>
+<div class="mg-chat-body">
+    <div class="message-sendarea">
+        <input type="text" ng-model="messageText" mg-enter="sendMessage(messageText)">
+    </div>
+    <div>
+        <input type="button" value="send" ng-click="sendMessage(messageText)"></div>
+</div>
