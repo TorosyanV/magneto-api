@@ -56,9 +56,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 
 	protected void configure(HttpSecurity http) throws Exception {
-		System.out.println(
-				"OAuth2ClientContextOAuth2ClientContextOAuth2ClientContextOAuth2ClientContextOAuth2ClientContextOAuth2ClientContext");
-
 		// @formatter:off
 		http.formLogin().loginPage("/login").failureUrl("/login?error").and().antMatcher("/**").authorizeRequests()
 				.antMatchers("/login**", "/static/*", "/register", "/resources/**", "/webjars/**").permitAll()

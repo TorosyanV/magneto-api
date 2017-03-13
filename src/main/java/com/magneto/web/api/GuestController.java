@@ -1,10 +1,7 @@
 package com.magneto.web.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.magneto.dto.User;
 import com.magneto.dto.UserDetailsDto;
@@ -19,7 +16,7 @@ public class GuestController extends AuthorizedController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping(value = "/detail/{userId}", method = RequestMethod.GET)
+	@GetMapping("/detail/{userId}")
 	public GuestDetailResponce getLocation(@PathVariable int userId) {
 
 		User user = super.getUser();

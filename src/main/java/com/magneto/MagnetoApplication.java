@@ -13,16 +13,43 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
+//@SpringBootApplication
+//@EnableCaching
+//@Order(6)
+//public class MagnetoApplication extends SpringBootServletInitializer {
+//
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(MagnetoApplication.class);
+//    }
+//
+//    @Configuration
+//    @EnableResourceServer
+//    @EnableWebSecurity
+//    protected static class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
+//        @Override
+//        public void configure(HttpSecurity http) throws Exception {
+//
+//
+//            // @formatter:off
+//            http.antMatcher("/api/**").authorizeRequests().anyRequest().authenticated();
+//            // @formatter:on
+//        }
+//
+//    }
+//
+//    public static void main(String[] args) {
+//        SpringApplication.run(MagnetoApplication.class, args);
+//    }
+//
+//}
+
+
 @SpringBootApplication
 @EnableCaching
 @Order(6)
-public class MagnetoApplication extends SpringBootServletInitializer {
+public class MagnetoApplication {
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(MagnetoApplication.class);
-    }
-    
     @Configuration
     @EnableResourceServer
     @EnableWebSecurity
@@ -30,16 +57,14 @@ public class MagnetoApplication extends SpringBootServletInitializer {
         @Override
         public void configure(HttpSecurity http) throws Exception {
 
-           
+
             // @formatter:off
             http.antMatcher("/api/**").authorizeRequests().anyRequest().authenticated();
             // @formatter:on
         }
 
     }
-
     public static void main(String[] args) {
         SpringApplication.run(MagnetoApplication.class, args);
     }
-
 }

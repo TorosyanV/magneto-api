@@ -11,11 +11,7 @@ import com.magneto.web.viewmodel.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.magneto.dto.User;
 import com.magneto.service.messenger.MessengerService;
@@ -40,7 +36,7 @@ public class MessengerController extends AuthorizedController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/sendtouser", method = RequestMethod.POST)
+    @PostMapping("/sendtouser")
     public void sendMessage(@RequestBody UserMessage message) {
 
         User user = super.getUser();
@@ -51,7 +47,7 @@ public class MessengerController extends AuthorizedController {
         messengerService.sendMessageToUser(messageDto, user.getId(), message.getToUserId());
     }
 
-    @RequestMapping(value = "/getchaters", method = RequestMethod.GET)
+    @GetMapping("/getchaters")
     public List<ChaterDetailsDto> getChaters() {
 
         User user = super.getUser();
@@ -59,7 +55,7 @@ public class MessengerController extends AuthorizedController {
         return messengerService.getChaters(user.getId());
     }
 
-    @RequestMapping(value = "/messages/{userTwo}/{pageNumber}/{pageSize}", method = RequestMethod.GET)
+    @GetMapping("/messages/{userTwo}/{pageNumber}/{pageSize}")
     public List<MessageDto> getMessages(@PathVariable int userTwo, @PathVariable int pageNumber,
                                         @PathVariable int pageSize) {
 
@@ -77,7 +73,7 @@ public class MessengerController extends AuthorizedController {
         return messengerService.getMessages(user.getId(), userTwo, pgn);
     }
 
-    @RequestMapping(value = "/messages/{userTwo}", method = RequestMethod.GET)
+    @GetMapping("/messages/{userTwo}")
     private List<MessageDto> getMessagesDefault(@PathVariable int userTwo) {
 
         return getMessages(userTwo, 1, 10);

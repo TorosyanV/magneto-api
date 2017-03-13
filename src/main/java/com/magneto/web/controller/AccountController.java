@@ -13,9 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import com.magneto.dto.RegistrationResult;
 import com.magneto.service.user.UserService;
@@ -33,24 +31,20 @@ public class AccountController {
 	@Qualifier("customUserDetailsService")
 	UserDetailsService userDetailsService;
 
-	@RequestMapping(value = "/{[path:[^\\.]*}")
-	public String redirect() {
-		return "home";
-	}
 
-	@RequestMapping(path = "/login", method = RequestMethod.GET)
+	@GetMapping("/login")
 	public String login() {
 		return "login";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.GET)
+	@GetMapping("/register")
 	public String showForm(Map<String, Object> model) {
 		RegistrationRequest registrationForm = new RegistrationRequest();
 		model.put("registrationForm", registrationForm);
 		return "registration";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
+	@PostMapping(value = "/register")
 	public String checkPersonInfo(@Valid @ModelAttribute("registrationForm") RegistrationRequest registrationForm,
 			BindingResult result, Map<String, Object> model) {
 		String returnResult = "registration";

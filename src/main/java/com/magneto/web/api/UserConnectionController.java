@@ -17,7 +17,7 @@ public class UserConnectionController extends AuthorizedController {
     @Autowired
     private UserConnectionService userConnectionService;
 
-    @RequestMapping(value = "/status/{userTwo}", method = RequestMethod.GET)
+    @GetMapping("/status/{userTwo}")
     private ConnectionStatus getUserConnectionStatus(@PathVariable int userTwo) {
 
         User user = super.getUser();
@@ -35,21 +35,21 @@ public class UserConnectionController extends AuthorizedController {
 //
 //    }
 
-    @RequestMapping(value = "/sent", method = RequestMethod.GET)
+    @GetMapping("/sent")
     private List<UserInfoDto> getUserSentConnections() {
         User user = super.getUser();
         return userConnectionService.getSentRequests(user.getId());
 
     }
 
-    @RequestMapping(value = "/received", method = RequestMethod.GET)
+    @GetMapping("/received")
     private List<UserInfoDto> getUserReceivedConnections() {
         User user = super.getUser();
         return userConnectionService.getReceivedRequests(user.getId());
 
     }
 
-    @RequestMapping(value = "/connected", method = RequestMethod.GET)
+    @GetMapping("/connected")
     private List<UserInfoDto> getUserConnectedConnections() {
         User user = super.getUser();
         return userConnectionService.getConnectedUsers(user.getId());
@@ -59,20 +59,21 @@ public class UserConnectionController extends AuthorizedController {
 
     ///TODO SET POST
 
-    @RequestMapping(value = "/sendrequest", method = RequestMethod.POST)
+    @PostMapping("/sendrequest")
     private void setNewConnectionRequest(@RequestBody int userId) {
         User user = super.getUser();
         userConnectionService.setNewConnectionRequest(user.getId(), userId);
 
     }
-    @RequestMapping(value = "/acceptrequest", method = RequestMethod.POST)
+
+    @PostMapping("/acceptrequest")
     private void acceptConnectionRequest(@RequestBody  int userId) {
         User user = super.getUser();
         userConnectionService.acceptConnectionRequest(user.getId(), userId);
 
     }
 
-    @RequestMapping(value = "/rejectrequest", method = RequestMethod.POST)
+    @PostMapping("/rejectrequest")
     private void rejectConnectionRequest(@RequestBody  int userId) {
         User user = super.getUser();
         userConnectionService.rejectConnectionRequest(user.getId(), userId);
