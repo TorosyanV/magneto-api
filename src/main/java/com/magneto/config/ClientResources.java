@@ -10,12 +10,10 @@ public class ClientResources {
 	private ResourceServerProperties resource = new ResourceServerProperties();
 
 	public OAuth2ProtectedResourceDetails getClient() {
-		System.out.println("getClient");
 		return client;
 	}
 
 	public ResourceServerProperties getResource() {
-		System.out.println("getResource");
 		return resource;
 	}
 }

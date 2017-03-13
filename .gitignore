@@ -1,0 +1,10 @@
+
+/target/
+/api.iml
+/.idea/
+/.settings/
+.idea/artifacts/
+.idea/libraries/
+.idea/workspace.xml
+src/test/resources/
+target/

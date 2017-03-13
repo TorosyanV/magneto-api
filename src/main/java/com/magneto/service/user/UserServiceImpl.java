@@ -64,7 +64,6 @@ public class UserServiceImpl implements UserService {
 
 		userRepository.refreshLocation(located.getKey(), userLocation);
 
-		System.out.println("11111111111111111111");
 
 	}
 
