@@ -8,3 +8,5 @@
 .idea/workspace.xml
 src/test/resources/
 target/
+src/test/java/
+!/src/test/resources/
