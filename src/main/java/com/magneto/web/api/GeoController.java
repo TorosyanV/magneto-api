@@ -10,9 +10,9 @@ import com.magneto.dto.NearUserInfoShortDto;
 import com.magneto.dto.User;
 import com.magneto.location.Geolocation;
 import com.magneto.service.user.UserService;
-import com.magneto.web.viewmodel.GeolocationModel;
-import com.magneto.web.viewmodel.NearUserInfoResponce;
-import com.magneto.web.viewmodel.UserInfoResponce;
+import com.magneto.web.model.GeolocationModel;
+import com.magneto.web.model.NearUserInfoResponce;
+import com.magneto.web.model.UserInfoResponce;
 
 @RestController
 @RequestMapping({ "/geo", "/api/geo" })

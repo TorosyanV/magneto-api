@@ -3,7 +3,7 @@ package com.magneto.service.geo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.magneto.web.viewmodel.GeolocationModel;
+import com.magneto.web.model.GeolocationModel;
 
 @Service("geoService")
 @Transactional

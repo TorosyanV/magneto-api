@@ -96,11 +96,7 @@ public class UserEntity {
 		this.userProfiles = userProfiles;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", password=" + password + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", email=" + email + ", state=" + state + ", userProfiles=" + userProfiles + "]";
-	}
+
 
 	public UserGeolocationEntity getCurrentLocation() {
 		return currentLocation;
@@ -118,4 +114,31 @@ public class UserEntity {
 		this.sex = sex;
 	}
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        UserEntity that = (UserEntity) o;
+
+        if (id != that.id) return false;
+        if (sex != that.sex) return false;
+        if (password != null ? !password.equals(that.password) : that.password != null) return false;
+        if (firstName != null ? !firstName.equals(that.firstName) : that.firstName != null) return false;
+        if (lastName != null ? !lastName.equals(that.lastName) : that.lastName != null) return false;
+        if (email != null ? !email.equals(that.email) : that.email != null) return false;
+        return state != null ? state.equals(that.state) : that.state == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id;
+        result = 31 * result + (password != null ? password.hashCode() : 0);
+        result = 31 * result + (sex ? 1 : 0);
+        result = 31 * result + (firstName != null ? firstName.hashCode() : 0);
+        result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
+        result = 31 * result + (email != null ? email.hashCode() : 0);
+        result = 31 * result + (state != null ? state.hashCode() : 0);
+        return result;
+    }
 }

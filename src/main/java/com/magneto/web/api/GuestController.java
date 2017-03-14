@@ -7,8 +7,8 @@ import com.magneto.dto.User;
 import com.magneto.dto.UserDetailsDto;
 import com.magneto.location.Calculator;
 import com.magneto.service.user.UserService;
-import com.magneto.web.viewmodel.GeolocationModel;
-import com.magneto.web.viewmodel.GuestDetailResponce;
+import com.magneto.web.model.GeolocationModel;
+import com.magneto.web.model.GuestDetailResponce;
 
 @RestController
 @RequestMapping({ "/geust", "/api/guest" })

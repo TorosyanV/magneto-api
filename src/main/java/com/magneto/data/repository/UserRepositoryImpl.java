@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 
 import com.magneto.data.entity.UserEntity;
 import com.magneto.data.entity.UserGeolocationEntity;
-import com.magneto.dto.RegistrationResult;
 import com.magneto.location.Geolocation;
 
 @Repository("userRepository")
@@ -31,10 +30,10 @@ public class UserRepositoryImpl extends AbstractDao<Integer, UserEntity> impleme
 		return user;
 	}
 
-	public RegistrationResult createIfNotExist(UserEntity user) {
+	public int createIfNotExist(UserEntity user) {
 		System.out.println("aaa" + user);
 		em.persist(user);
-		return RegistrationResult.SUCCESS;
+		return user.getId();
 	}
 
 	@Override

@@ -1,6 +1,6 @@
 package com.magneto.service.geo;
 
-import com.magneto.web.viewmodel.GeolocationModel;
+import com.magneto.web.model.GeolocationModel;
 
 public interface GeoService {
 
