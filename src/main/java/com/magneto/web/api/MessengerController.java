@@ -1,13 +1,11 @@
 package com.magneto.web.api;
 
 import java.security.Principal;
-import java.util.Date;
 import java.util.List;
 
 import com.magneto.data.entity.UserEntity;
 import com.magneto.service.messenger.dto.MessagRecived;
 import com.magneto.service.user.UserService;
-import com.magneto.web.viewmodel.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -19,7 +17,7 @@ import com.magneto.service.messenger.dto.ChaterDetailsDto;
 import com.magneto.service.messenger.dto.MessageDto;
 import com.magneto.service.messenger.dto.StandardMessageDto;
 import com.magneto.util.Pagination;
-import com.magneto.web.viewmodel.messenger.UserMessage;
+import com.magneto.web.model.messenger.UserMessage;
 
 /**
  * Created by vazgen on 2/20/16.

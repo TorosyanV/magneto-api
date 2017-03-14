@@ -14,14 +14,13 @@ import com.magneto.data.entity.UserGeolocationEntity;
 import com.magneto.data.repository.GeoRepository;
 import com.magneto.data.repository.UserRepository;
 import com.magneto.dto.NearUserInfoShortDto;
-import com.magneto.dto.RegistrationResult;
 import com.magneto.dto.User;
 import com.magneto.dto.UserDetailsDto;
 import com.magneto.dto.UserInfoDto;
 import com.magneto.location.Calculator;
 import com.magneto.location.Geolocated;
 import com.magneto.location.Geolocation;
-import com.magneto.web.viewmodel.RegistrationRequest;
+import com.magneto.web.model.RegistrationRequest;
 
 @Service("userService")
 @Transactional
@@ -41,9 +40,7 @@ public class UserServiceImpl implements UserService {
 		return userRepository.findByEmail(email);
 	}
 
-	public RegistrationResult createUserIfNotExist(RegistrationRequest registrationForm) {
-		System.out.println("createUserIfNotExistcreateUserIfNotExistcreateUserIfNotExistcreateUserIfNotExist");
-		RegistrationResult result;
+	public int createUserIfNotExist(RegistrationRequest registrationForm) throws UserAlreadyExistsException {
 
 		UserEntity user = new UserEntity();
 		user.setEmail(registrationForm.getEmail());
@@ -51,9 +48,15 @@ public class UserServiceImpl implements UserService {
 		user.setLastName("Last name");
 		user.setPassword(registrationForm.getPassword());
 		user.setState("Active");
-		result = userRepository.createIfNotExist(user);
-		return result;
+		System.out.printf("Registration Success");
+		return userRepository.createIfNotExist(user);
+
+//		if(result== RegistrationResult.USER_EXIST){
+//			throw  new UserAlreadyExistsException("Can't create existing user");
+//		}
+//		return user.getId();
 	}
+
 
 	@Override
 	public void refreshLocation(Geolocated<Integer> located) {

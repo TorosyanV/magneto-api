@@ -1,4 +1,4 @@
-package com.magneto.web.viewmodel;
+package com.magneto.web.model;
 
 public class UserInfoResponce {
 

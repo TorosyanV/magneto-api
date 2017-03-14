@@ -4,11 +4,10 @@ import java.util.List;
 
 import com.magneto.data.entity.UserEntity;
 import com.magneto.dto.NearUserInfoShortDto;
-import com.magneto.dto.RegistrationResult;
 import com.magneto.dto.UserDetailsDto;
 import com.magneto.location.Geolocated;
 import com.magneto.location.Geolocation;
-import com.magneto.web.viewmodel.RegistrationRequest;
+import com.magneto.web.model.RegistrationRequest;
 
 public interface UserService {
 
@@ -16,7 +15,7 @@ public interface UserService {
 
 	UserEntity findByEmail(String email);
 
-	RegistrationResult createUserIfNotExist(RegistrationRequest registrationForm);
+    int createUserIfNotExist(RegistrationRequest registrationForm) throws UserAlreadyExistsException;
 
 	void refreshLocation(Geolocated<Integer> located);
 

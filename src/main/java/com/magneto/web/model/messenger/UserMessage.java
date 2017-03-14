@@ -1,4 +1,4 @@
-package com.magneto.web.viewmodel.messenger;
+package com.magneto.web.model.messenger;
 
 /**
  * Created by vazgen on 2/20/16.
